@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import LeftNav from '../../component/left-nav/main'
 import ChatComponent from '../chat/chat'
@@ -26,6 +26,7 @@ class MainHome extends Component {
                         <Route path={`${this.props.match.path}/chat`} component={ChatComponent}/>
                         <Route path={`${this.props.match.path}/friends`} component={FriendsComponent}/>
                         <Route path={`${this.props.match.path}/more`} component={MoreComponent}/>
+                        <Redirect to={`${this.props.match.path}/chat`}/>
                     </Switch>
                 </div>
             </div>
