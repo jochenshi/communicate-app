@@ -6,7 +6,7 @@ import SingleChatItem from "../../component/single-chat-item/main";
 class SingleChatComponent extends Component {
     constructor (props) {
         super(props);
-        console.log('11',props);
+        console.log('single chat',props);
         this.chatInfo = [
             {source: 'target'},
             {source: 'target'},

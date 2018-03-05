@@ -1,15 +1,22 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 
 import './main.styl'
+import LeftNav from "../left-nav/main";
 
 class SingleChatCard extends Component {
     constructor (props) {
-        super(props)
+        super(props);
+        //console.log('singlechat', this)
     }
 
     render () {
         return (
-            <div className={'single-chat-card'}>
+            <div className={'single-chat-card'} onClick={() => {
+                //this.props.clickEvent();
+                console.log(this);
+                this.context.router.history.push('/auth/main/chat/' + this.props.chatId)
+            }}>
                 <div className={'person-avatar'}>
                     <i className={'avatar-area'}></i>
                 </div>
@@ -24,5 +31,9 @@ class SingleChatCard extends Component {
         )
     }
 }
+
+SingleChatCard.contextTypes = {
+    router: PropTypes.object
+};
 
 export default SingleChatCard

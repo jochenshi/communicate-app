@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom'
+
 import SingleChatComponent from "./single-chat";
+import SingleChatCard from "../../component/single-chat-card/main";
 
 import './chat.styl'
-import SingleChatCard from "../../component/single-chat-card/main";
 
 class ChatComponent extends Component {
     constructor (props) {
         super(props);
-        console.log('11',props);
         this.chatList = [{},{},{},{},{},{}];
     }
     render () {
@@ -17,12 +18,19 @@ class ChatComponent extends Component {
                     {
                         this.chatList.length ?
                             this.chatList.map((val, index) => {
-                                return <SingleChatCard key={index} chatInfo={val}/>
+                                return (
+                                    <SingleChatCard key={index} chatInfo={val} clickEvent={() => {
+                                        console.log(this.props.history.push);
+                                        this.props.history.push('/auth/main/chat/' + index)
+                                    }} chatId={index}/>
+                                )
                             }):
                             <div>no content</div>
                     }
                 </div>
-                <SingleChatComponent/>
+                <Switch>
+                    <Route path={`${this.props.match.path}/:id`} component={SingleChatComponent}/>
+                </Switch>
             </div>
         )
     }
