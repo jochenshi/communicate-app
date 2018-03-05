@@ -22,12 +22,16 @@ class SingleChatComponent extends Component {
 
         ]
     }
+    componentDidMount () {
+        console.log('componentDidMount')
+    }
     render () {
+        console.log('render', this);
         return (
             <div className={'single-chat-component'}>
                 <div className={'single-chat-header'}>
                     <div className={'left-header'}>
-                        tom
+                        {`tom${this.props.match.params.id}`}
                     </div>
                     <div className={'right-header'}>
                         <i className={'icon iconfont ca-geren'}></i>

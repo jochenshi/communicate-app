@@ -13,9 +13,9 @@ class SingleChatCard extends Component {
     render () {
         return (
             <div className={'single-chat-card'} onClick={() => {
-                //this.props.clickEvent();
-                console.log(this);
-                this.context.router.history.push('/auth/main/chat/' + this.props.chatId)
+                this.props.clickEvent();
+                console.log('asd', this);
+                //this.context.router.history.push('/auth/main/chat/' + this.props.chatId)
             }}>
                 <div className={'person-avatar'}>
                     <i className={'avatar-area'}></i>

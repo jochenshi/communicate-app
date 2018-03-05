@@ -20,7 +20,6 @@ class ChatComponent extends Component {
                             this.chatList.map((val, index) => {
                                 return (
                                     <SingleChatCard key={index} chatInfo={val} clickEvent={() => {
-                                        console.log(this.props.history.push);
                                         this.props.history.push('/auth/main/chat/' + index)
                                     }} chatId={index}/>
                                 )
